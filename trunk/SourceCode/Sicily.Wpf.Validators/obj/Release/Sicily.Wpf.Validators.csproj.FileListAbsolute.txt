@@ -1,5 +1,0 @@
-C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Wpf.Validators\bin\Release\Sicily.Wpf.Validators.dll
-C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Wpf.Validators\bin\Release\Sicily.Wpf.Validators.pdb
-C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Wpf.Validators\obj\Release\ResolveAssemblyReference.cache
-C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Wpf.Validators\obj\Release\Sicily.Wpf.Validators.dll
-C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Wpf.Validators\obj\Release\Sicily.Wpf.Validators.pdb
