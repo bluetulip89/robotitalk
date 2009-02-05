@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Sicily.Robotix.MicroController.CommunicationApplication.Controls.PortSettingsConfiguration"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+
+		<!-- row 1 -->
+		<TextBlock Grid.Row="0" Grid.Column="0">COM Port:</TextBlock>
+		<ComboBox Grid.Row="0" Grid.Column="1" Name="lstSerialPorts" Width="100" SelectionChanged="lstSerialPorts_SelectionChanged"></ComboBox>
+		<Button Grid.Row="0" Grid.Column="2" Name="btnRefreshSerialPorts" Click="btnRefreshSerialPorts_Click">Refresh</Button>
+
+		<!-- row 2 -->
+		<TextBlock Grid.Row="1" Grid.Column="0">Baud Rate:</TextBlock>
+		<ComboBox Grid.Row="1" Grid.Column="1" Name="lstBaudRates" Width="100" SelectionChanged="lstBaudRates_SelectionChanged"/>
+		<StackPanel Grid.Row="1" Grid.Column="2" Name="pnlOtherBaudRate" Orientation="Horizontal" Visibility="Collapsed">
+			<TextBlock>Other Baud Rate:</TextBlock>
+			<TextBox Name="txtOtherBaudRate" Width="100" LostFocus="txtOtherBaudRate_LostFocus"/>
+		</StackPanel>
+
+		<!-- row 3 -->
+		<TextBlock Grid.Row="2" Grid.Column="0">Number of Data Bits:</TextBlock>
+		<TextBox Grid.Row="2" Grid.Column="1" Name="txtDataBits" Width="100" TextChanged="txtDataBits_TextChanged"></TextBox>
+		<StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+			<Button Name="btnDataBitsUp" Click="btnDataBitsUp_Click" >/\</Button>
+			<Button Name="btnDataBitsDown" Click="btnDataBitsDown_Click">\/</Button>
+		</StackPanel>
+
+		<!-- row 4 -->
+		<TextBlock Grid.Row="3" Grid.Column="0">Parity:</TextBlock>
+		<ComboBox Grid.Row="3" Grid.Column="1" Name="lstParity" Width="100" SelectionChanged="lstParity_SelectionChanged"></ComboBox>
+
+		<!-- row 5 -->
+		<TextBlock Grid.Row="4" Grid.Column="0">Stop Bits:</TextBlock>
+		<ComboBox Grid.Row="4" Grid.Column="1" Name="lstStopBits" Width="100" SelectionChanged="lstStopBits_SelectionChanged"></ComboBox>
+
+		<!-- row 6 -->
+		<TextBlock Grid.Row="5" Grid.Column="0">Handshake:</TextBlock>
+		<ComboBox Grid.Row="5" Grid.Column="1" Name="lstHandshake" Width="100" SelectionChanged="lstHandshake_SelectionChanged"></ComboBox>
+	</Grid>
+</UserControl>

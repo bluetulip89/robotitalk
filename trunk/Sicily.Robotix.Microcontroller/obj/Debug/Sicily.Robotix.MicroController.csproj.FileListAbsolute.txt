@@ -1,0 +1,10 @@
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Robotix.Microcontroller\bin\Debug\Sicily.Robotix.MicroController.dll
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Robotix.Microcontroller\bin\Debug\Sicily.Robotix.MicroController.pdb
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Robotix.Microcontroller\obj\Debug\ResolveAssemblyReference.cache
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Robotix.Microcontroller\obj\Debug\Sicily.Robotix.MicroController.dll
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Robotix.Microcontroller\obj\Debug\Sicily.Robotix.MicroController.pdb
+C:\[devlocal]\Sicily.Robotix.RobotiTalk\Sicily.Robotix.Microcontroller\bin\Debug\Sicily.Robotix.MicroController.dll
+C:\[devlocal]\Sicily.Robotix.RobotiTalk\Sicily.Robotix.Microcontroller\bin\Debug\Sicily.Robotix.MicroController.pdb
+C:\[devlocal]\Sicily.Robotix.RobotiTalk\Sicily.Robotix.Microcontroller\obj\Debug\ResolveAssemblyReference.cache
+C:\[devlocal]\Sicily.Robotix.RobotiTalk\Sicily.Robotix.Microcontroller\obj\Debug\Sicily.Robotix.MicroController.dll
+C:\[devlocal]\Sicily.Robotix.RobotiTalk\Sicily.Robotix.Microcontroller\obj\Debug\Sicily.Robotix.MicroController.pdb

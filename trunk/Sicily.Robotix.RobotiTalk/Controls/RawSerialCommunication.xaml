@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="Sicily.Robotix.MicroController.CommunicationApplication.Controls.RawSerialCommunication"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+>
+	<Grid>
+		<!-- background fill -->
+		<Rectangle Name="rctBackground" Fill="#c5c9ce"/>
+		
+		<DockPanel>
+			<!-- -->
+			<TextBlock DockPanel.Dock="Top" Style="{StaticResource Heading1}">Serial Communication</TextBlock>
+			
+			<DockPanel DockPanel.Dock="Top">
+				<TextBlock Name="txtRobotName" DockPanel.Dock="Left" Style="{StaticResource Heading2}" >[robotname]</TextBlock>
+				
+				<!--<Button Name="btnConfigureRobot" Click="btnConfigureRobot_Click">Configure Robot</Button>-->
+				
+				<StackPanel></StackPanel>
+			</DockPanel>
+			
+			<!-- instructions/send -->
+			<DockPanel DockPanel.Dock="Top" Margin="0,10,0,0">
+				<!-- instructions label -->
+				<TextBlock DockPanel.Dock="Left">Send Instructions:</TextBlock>
+				<!-- send instructions button -->
+				<Button DockPanel.Dock="Right" Name="btnSendInstructions" Click="btnSendInstructions_Click">Send</Button>
+				<!-- encoding -->
+				<ComboBox DockPanel.Dock="Right" Name="lstEncoding" Width="95" Margin="10,0,10,0">
+					<ComboBoxItem IsSelected="True">ASCII</ComboBoxItem>
+					<ComboBoxItem>Byte Array</ComboBoxItem>
+					<!--<ComboBoxItem>Hex</ComboBoxItem>-->
+				</ComboBox>
+				<!-- encoding label -->
+				<TextBlock DockPanel.Dock="Right">Encoding:</TextBlock>
+				<!-- newline -->
+				<CheckBox DockPanel.Dock="Right" Name="chkAppendNewline" Margin="0,0,10,0"/>
+				<TextBlock DockPanel.Dock="Right" Margin="0,0,10,0">Append Newline:</TextBlock>
+
+				<!-- instructions text box -->
+				<TextBox Name="txtInstructions" Margin="10,0,10,0"/>
+			</DockPanel>
+
+			<!-- clear button-->
+			<DockPanel DockPanel.Dock="Bottom" Margin="0,10,0,0">
+				<!-- port open/closed -->
+				<Image DockPanel.Dock="Left" Source="/Resources/Images/Image_Icon_PortClosed.png" Name="imgPortClosed" Width="20"/>
+				<Image DockPanel.Dock="Left" Source="/Resources/Images/Image_Icon_PortOpen.png" Name="imgPortOpen" Width="20" Visibility="Collapsed"/>
+				<TextBlock DockPanel.Dock="Left" Style="{StaticResource BottomStatusItem}" Name="txtPortStatus" >port closed</TextBlock>
+				
+				<!-- clear button -->
+				<Button DockPanel.Dock="Right" Name="btnClear" HorizontalAlignment="Right" Click="btnClear_Click" Margin="10,0,0,0">Clear</Button>
+				<Button DockPanel.Dock="Right" Name="btnOpenClosePort" Click="btnOpenClosePort_Click">Open Port</Button>
+
+				<!-- filler -->
+				<StackPanel/>
+
+			</DockPanel>
+			
+			<!-- response -->
+			<Grid>
+				<TextBox VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" Name="txtResponse" Margin="0,10,0,0"/>
+			</Grid>
+
+		</DockPanel>
+	</Grid>
+</UserControl>
