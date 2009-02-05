@@ -13,3 +13,6 @@ Checkout the [Roadmap] for more information on where RobotiTalk is headed.
 
 = Screens =
 Check out the [ScreenShots] page for screens of RobotiTalk in action.
+
+= Source Code =
+Check out the [SourceCode] page for more information about the RobotiTalk source.
