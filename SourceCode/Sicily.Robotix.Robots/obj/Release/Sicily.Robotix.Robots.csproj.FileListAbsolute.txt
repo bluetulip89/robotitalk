@@ -1,0 +1,7 @@
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Robotix.Robots\bin\Release\Sicily.Robotix.Robots.dll
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Robotix.Robots\bin\Release\Sicily.Robotix.Robots.pdb
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Robotix.Robots\bin\Release\Sicily.Robotix.MicroController.dll
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Robotix.Robots\bin\Release\Sicily.Robotix.MicroController.pdb
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Robotix.Robots\obj\Release\ResolveAssemblyReference.cache
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Robotix.Robots\obj\Release\Sicily.Robotix.Robots.dll
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Robotix.Robots\obj\Release\Sicily.Robotix.Robots.pdb

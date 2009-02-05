@@ -1,0 +1,10 @@
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Wpf.Validators\bin\Debug\Sicily.Wpf.Validators.dll
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Wpf.Validators\bin\Debug\Sicily.Wpf.Validators.pdb
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Wpf.Validators\obj\Debug\ResolveAssemblyReference.cache
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Wpf.Validators\obj\Debug\Sicily.Wpf.Validators.dll
+C:\[devlocal]\Sicily.Robotix.Microcontroller\Sicily.Wpf.Validators\obj\Debug\Sicily.Wpf.Validators.pdb
+C:\[devlocal]\Sicily.Robotix.RobotiTalk\Sicily.Wpf.Validators\bin\Debug\Sicily.Wpf.Validators.dll
+C:\[devlocal]\Sicily.Robotix.RobotiTalk\Sicily.Wpf.Validators\bin\Debug\Sicily.Wpf.Validators.pdb
+C:\[devlocal]\Sicily.Robotix.RobotiTalk\Sicily.Wpf.Validators\obj\Debug\ResolveAssemblyReference.cache
+C:\[devlocal]\Sicily.Robotix.RobotiTalk\Sicily.Wpf.Validators\obj\Debug\Sicily.Wpf.Validators.dll
+C:\[devlocal]\Sicily.Robotix.RobotiTalk\Sicily.Wpf.Validators\obj\Debug\Sicily.Wpf.Validators.pdb

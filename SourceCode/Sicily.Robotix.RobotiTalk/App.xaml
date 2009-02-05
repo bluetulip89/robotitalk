@@ -1,0 +1,289 @@
+﻿<Application x:Class="Sicily.Robotix.MicroController.CommunicationApplication.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    StartupUri="MainWindow.xaml"
+	>
+    <Application.Resources>
+
+		<!-- ===== LOGICAL RESOURCES ===== -->
+		<LinearGradientBrush x:Key="BlueButtonBackground">
+			<GradientStop Color="#99ccff" Offset="0" />
+			<GradientStop Color="#37ABFF" Offset=".7" />
+
+		</LinearGradientBrush>
+
+		<!-- systematic failure font -->
+		<FontFamily x:Key="SystematicFailure">Resources/Fonts/#Sytematic Failure</FontFamily>
+
+		<!-- systematic failure font -->
+		<FontFamily x:Key="TradeGothicLightStandardCondensed">Resources/Fonts/#Trade Gothic LT Std Cn</FontFamily>
+		<!-- ===== /LOGICAL RESOURCES ===== -->
+
+		<!-- ===== Named Styles ===== -->
+		<!-- text -->
+		<Style x:Key="Text">
+			<Setter Property="Control.FontSize" Value="14"/>
+			<Setter Property="Control.FontFamily" Value="{StaticResource TradeGothicLightStandardCondensed}"/>
+			<Setter Property="Control.VerticalAlignment" Value="Center"/>
+			<Setter Property="Control.Background" Value="#eeeeee"/>
+		</Style>
+
+		<!-- input -->
+		<Style x:Key="Input" BasedOn="{StaticResource Text}">
+			<Setter Property="Control.BorderBrush" Value="#3a5c83"/>
+		</Style>
+		
+		<!-- bottom status item -->
+		<Style x:Key="BottomStatusItem">
+			<Setter Property="Control.FontFamily" Value="{StaticResource TradeGothicLightStandardCondensed}"/>
+			<Setter Property="Control.Foreground" Value="#3a5c83"/>
+			<Setter Property="Control.FontSize" Value="12"/>
+			<Setter Property="Control.VerticalAlignment" Value="Center"/>
+			<Setter Property="TextBlock.Margin" Value="6,0,6,0"/>
+		</Style>
+
+		<!-- link -->
+		<Style x:Key="Link">
+			<Setter Property="Control.FontFamily" Value="{StaticResource TradeGothicLightStandardCondensed}"/>
+			<Setter Property="Control.Foreground" Value="#3a5c83"/>
+			<Setter Property="Control.Cursor" Value="Hand"/>
+			<Style.Triggers>
+				<Trigger Property="Control.IsMouseOver" Value="true">
+					<Setter Property="Control.Foreground" Value="#bbffffff"/>
+				</Trigger>
+			</Style.Triggers>
+		</Style>
+
+		<!-- bottom nav link -->
+		<Style x:Key="BottomNavLink" BasedOn="{StaticResource Link}">
+			<Setter Property="Control.FontSize" Value="12"/>
+			<Setter Property="Control.VerticalAlignment" Value="Center"/>
+			<Setter Property="TextBlock.Margin" Value="6,0,6,0"/>
+		</Style>
+		<Style x:Key="BottomNavLinkCurrent" BasedOn="{StaticResource BottomNavLink}">
+			<Setter Property="Control.Foreground" Value="#000000"/>
+		</Style>
+
+		<!-- left nav link -->
+		<Style x:Key="LeftNavLink" BasedOn="{StaticResource Link}">
+			<Setter Property="Control.FontSize" Value="12"/>
+			<Setter Property="Control.VerticalAlignment" Value="Center"/>
+			<Setter Property="TextBlock.Margin" Value="0,3,0,3"/>
+		</Style>
+		<Style x:Key="LeftNavLinkCurrent" BasedOn="{StaticResource LeftNavLink}">
+			<Setter Property="Control.Foreground" Value="#000000"/>
+		</Style>
+
+		<!-- left nav -->
+		<Style x:Key="LeftNav">
+			<Setter Property="Control.FontFamily" Value="{StaticResource TradeGothicLightStandardCondensed}"/>
+			<Setter Property="Control.Foreground" Value="#3a5c83"/>
+			<Setter Property="Control.FontSize" Value="12"/>
+			<Setter Property="Control.VerticalAlignment" Value="Center"/>
+			<Setter Property="TextBlock.Margin" Value="0,3,0,3"/>
+		</Style>
+
+
+		<!-- heading base -->
+		<Style x:Key="HeadingBase">
+			<Setter Property="Control.Foreground" Value="#3a5c83"/>
+		</Style>
+
+		<!-- Heading 1 -->
+		<Style x:Key="Heading1" BasedOn="{StaticResource HeadingBase}">
+			<Setter Property="Control.FontSize" Value="30"/>
+			<Setter Property="Control.FontWeight" Value="Bold"/>
+		</Style>
+
+		<!-- Heading 2 -->
+		<Style x:Key="Heading2" BasedOn="{StaticResource HeadingBase}">
+			<Setter Property="Control.FontSize" Value="20"/>
+			<Setter Property="Control.FontWeight" Value="Bold"/>
+		</Style>
+
+		<!-- Heading 3 -->
+		<Style x:Key="Heading3" BasedOn="{StaticResource HeadingBase}">
+			<Setter Property="Control.FontSize" Value="18"/>
+			<Setter Property="Control.FontWeight" Value="Bold"/>
+			<Setter Property="Control.Margin" Value="0,12,0,6"/>
+		</Style>
+
+		<!-- modal window title -->
+		<Style x:Key="ModalWindowTitle" BasedOn="{StaticResource Heading3}">
+			<Setter Property="Control.Margin" Value="0"/>
+			<Setter Property="Control.VerticalAlignment" Value="Center"/>
+		</Style>
+
+		<!-- ===== /Named Styles ==== -->
+		
+		
+		<!-- ===== CONTROL STYLES ===== -->
+
+		<!-- resize handle -->
+		<Style x:Key="ResizeGrip" TargetType="{x:Type ResizeGrip}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ResizeGrip}">
+						<Grid HorizontalAlignment="Right" VerticalAlignment="Bottom">
+							<Polygon Name="plyResizeHandle" Points="20,0 20,20, 0,20" Fill="#3a5c83" Stroke="White" StrokeThickness="1"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<!-- textblock -->
+		<Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Text}">
+		</Style>
+
+		<!-- Label -->
+		<Style TargetType="{x:Type Label}" BasedOn="{StaticResource Text}">
+		</Style>
+
+		<!-- textbox -->
+		<Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource Input}">
+		</Style>
+
+		<!-- passwordbox -->
+		<Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource Input}">
+		</Style>
+
+		<!-- combobox -->
+		<Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource Input}">
+		</Style>
+
+		<!-- checkbox -->
+		<Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource Input}">
+		</Style>
+
+		<!-- button -->
+		<Style TargetType="{x:Type Button}">
+			<Setter Property="Control.FontSize" Value="12"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="Background">
+				<Setter.Value>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="#99ccff" Offset="0"/>
+						<GradientStop Color="#3a5c83" Offset="1"/>
+
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+			<!--<Setter Property="Background" Value="{StaticResource BlueButtonBackground}"/>-->
+			<Setter Property="Padding" Value="6,2,6,2"/>
+			<!--<Setter Property="BorderBrush" Value="#6fbfff"/>-->
+			<Setter Property="BorderBrush">
+				<Setter.Value>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="#6DBDFF" Offset="0" />
+						<GradientStop Color="#3a5c83" Offset="1.0" />
+
+					</LinearGradientBrush>
+
+				</Setter.Value>
+			</Setter>
+			<!--<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate x:Key="ButtonTemplate">
+
+						<Rectangle Fill="{TemplateBinding Property=Background}" />
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>-->
+		</Style>
+
+
+		<!-- list view item -->
+		<Style TargetType="{x:Type ListViewItem}">
+			<Style.Triggers>
+				<Trigger Property="ItemsControl.AlternationIndex" Value="0">
+					<Setter Property="Background" Value="#ffffff"></Setter>
+				</Trigger>
+				<Trigger Property="ItemsControl.AlternationIndex" Value="1">
+					<Setter Property="Background" Value="#dddddd"></Setter>
+				</Trigger>
+				<!-- todo: figure out why this doesn't work. -->
+				<Trigger Property="IsSelected" Value="true">
+					<Setter Property="Background" Value="#BED68D"/>
+				</Trigger>
+				<Trigger Property="IsMouseOver" Value="true">
+					<Setter Property="Background" Value="#BED68D"/>
+				</Trigger>
+
+			</Style.Triggers>
+		</Style>
+
+		<!-- window base -->
+		<Style x:Key="WindowBase">
+			<Setter Property="Window.Background" Value="Transparent"/>
+			<Setter Property="Window.WindowStyle" Value="None"/>
+			<Setter Property="Window.AllowsTransparency" Value="True"/>
+			<Setter Property="Window.ResizeMode" Value="CanResizeWithGrip"/>
+		</Style>
+		
+		<!-- mainWindowStyle -->
+		<Style x:Key="MainWindowStyle" TargetType="{x:Type Window}" BasedOn="{StaticResource WindowBase}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Window}">
+						<Grid>
+							<Rectangle Fill="#dd3a5c83" RadiusX="20" RadiusY="20" Stroke="AliceBlue" StrokeThickness="1"/>
+							<Grid Margin="10">
+								<ContentPresenter Content="{TemplateBinding Content}"/>
+							</Grid> 
+							<ResizeGrip Style="{DynamicResource ResizeGrip}" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<!-- ModalWindowStyle -->
+		<Style x:Key="ModalWindowStyle" TargetType="{x:Type Window}" BasedOn="{StaticResource WindowBase}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Window}">
+						<Grid>
+							<Rectangle Fill="#ddBED68D" RadiusX="20" RadiusY="20" Stroke="AliceBlue" StrokeThickness="1"/>
+							<DockPanel Margin="10">
+								<Grid DockPanel.Dock="Top" Margin="0,0,0,10" x:Name="grdWindowTitle">
+									<!-- background fill -->
+									<Rectangle Name="rctBanner" Fill="#c5c9ce" RadiusX="15" RadiusY="15" Height="40"/>
+									<TextBlock Margin="10,0,10,0"  Text="{TemplateBinding Title}" Style="{DynamicResource ModalWindowTitle}" />
+								</Grid>
+								<Grid>
+									<!-- background fill -->
+									<Rectangle Name="rctBackground" Fill="#c5c9ce" RadiusX="15" RadiusY="15"/>
+									<ContentPresenter Margin="10" Content="{TemplateBinding Content}"/>
+								</Grid>
+							</DockPanel>
+							<ResizeGrip Style="{DynamicResource ResizeGrip}" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+						</Grid>
+						<!--<AdornerDecorator>
+							<ContentPresenter
+                            Content="{TemplateBinding Content}" 
+                            Margin="{TemplateBinding Margin}" />
+						</AdornerDecorator>-->
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		
+		<!--<Style TargetType="{x:Type TreeView}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type TreeView}">
+						<Grid>
+							<Rectangle Fill="#c5c9ce" RadiusX="20" RadiusY="20" Stroke="AliceBlue" StrokeThickness="1"/>
+							<ContentControl></ContentControl>-->
+							<!--<ContentPresenter Content="{TemplateBinding Content}"/>-->
+						<!--</Grid>
+					</ControlTemplate>
+				</Setter.Value>				
+			</Setter>
+		</Style>-->
+
+
+
+	</Application.Resources>
+</Application>
