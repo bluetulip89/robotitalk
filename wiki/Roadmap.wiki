@@ -17,4 +17,4 @@ The following features will be added within the coming month or so.
   * *Complete Wiki* - Documentation for all the major aspects of RobotiTalk
 
 = Long-term Goals =
-Long-term, I'd like to include RobitiTalk into RobotiStudio, which will provide an interface manage, build, and upload sketches to the micro-controller, so that you can have a seamless workflow when building multiple prototypes.
+Long-term, I'd like to include RobotiTalk into RobotiStudio, which will provide an interface manage, build, and upload sketches to the micro-controller, so that you can have a seamless workflow when building multiple prototypes.
