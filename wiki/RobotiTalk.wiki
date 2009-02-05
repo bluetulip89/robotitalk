@@ -1,6 +1,8 @@
 #summary Introduction
 
-Checkout the Roadmap for more information on where RobotiTalk is headed.
+Checkout the [Roadmap] for more information on where RobotiTalk is headed.
+
+Here are some screens:
 
 http://robotitalk.googlecode.com/svn/trunk/SourceCode/Files/ScreenShots/RobotiTalk_ScreenShot_RobotEdit01_Small.png
 
