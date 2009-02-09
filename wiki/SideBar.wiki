@@ -1,8 +1,10 @@
 #summary RobotiTalk Wiki SideBar
 
 == Main Pages ==
-[RobotiTalk]
+[RobotiTalk Overview]
 
-[ScreenShots]
+[ScreenShots Screen Shots]
 
-[SourceCode]
+[SourceCode Source Code]
+
+[CustomRobotsOverview Custom Robots]
