@@ -2,7 +2,7 @@
 
 = Introduction =
 
-RobotiTalk includes several sample robots that you can use as examples for how to build your own custom robots for use with RobotiTalk.
+RobotiTalk includes several sample robots that you can use as examples for how to build your own custom robots for use with RobotiTalk. For information on building your own, see the [CustomRobotsOverview Building Custom Robots] page.
 
 
 = Sample Robots =
