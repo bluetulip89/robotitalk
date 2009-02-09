@@ -58,6 +58,7 @@
     <Compile Include="AssemblyManager.cs" />
     <Compile Include="BaudRate.cs" />
     <Compile Include="CustomExceptions.cs" />
+    <Compile Include="IRobotUI.cs" />
     <Compile Include="RobotConfiguration.cs" />
     <Compile Include="IRobot.cs" />
     <Compile Include="PortSettings.cs" />

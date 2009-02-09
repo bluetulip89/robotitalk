@@ -19,7 +19,7 @@ namespace Sicily.Robotix.MicroController.CommunicationApplication
 
 		//---- controls
 		ManageRobots _manageRobots;
-		Dictionary<string, RawSerialCommunication> _commWindows = new Dictionary<string,RawSerialCommunication>();
+		Dictionary<string, RobotUIHost> _robotUIs = new Dictionary<string, RobotUIHost>();
 
 		#endregion
 		//=======================================================================
@@ -107,36 +107,29 @@ namespace Sicily.Robotix.MicroController.CommunicationApplication
 				//---- get the selected robot
 				selectedRobotConfiguration = this.lstConfiguredRobots.SelectedItem as RobotConfiguration;
 
-				//---- if it doesn't have a custom UI
-				if (!selectedRobotConfiguration.HasCustomUI)
+				//---- if it's already running
+				if (this._robotUIs.ContainsKey(selectedRobotConfiguration.DisplayName))
 				{
-					//---- if it's not already running
-					if (this._commWindows.ContainsKey(selectedRobotConfiguration.DisplayName))
-					{
-						//---- hide the other controls
-						this.HideControls();
-						//---- show that one
-						this._commWindows[selectedRobotConfiguration.DisplayName].Visibility = Visibility;
-					}
-					else //---- create a new one
-					{
-						//---- try to instantiate the robot
-						try
-						{ robot = Robot.FromConfiguration(selectedRobotConfiguration); }
-						catch (Exception ex)
-						{
-							//---- throw up our message box
-							MessageBoxResult result = Sicily.Robotix.MicroController.CommunicationApplication.Dialogs.MessageBox.Show(Window.GetWindow(this), ex.Message, "Robot Load ERRRRRRRRRRRR", MessageBoxButton.OK);
-							//---- return out
-							return;
-						}
-						//---- show the raw communication page
-						this.ShowRawCommunication(robot);
-					}
+					//---- hide the other controls
+					this.HideControls();
+					//---- show that one
+					this._robotUIs[selectedRobotConfiguration.DisplayName].Visibility = Visibility;
 				}
-				else
+				//---- if it's not running yet, create a new one
+				else 
 				{
-					//TODO: shit's gotta go here
+					//---- try to instantiate the robot
+					try
+					{ robot = Robot.FromConfiguration(selectedRobotConfiguration); }
+					catch (Exception ex)
+					{
+						//---- throw up our message box
+						MessageBoxResult result = Sicily.Robotix.MicroController.CommunicationApplication.Dialogs.MessageBox.Show(Window.GetWindow(this), ex.Message, "Robot Load ERRRRRRRRRRRR", MessageBoxButton.OK);
+						//---- return out
+						return;
+					}
+					//---- show the raw communication page
+					this.ShowRobotUI(robot);
 				}
 			}
 		}
@@ -151,7 +144,7 @@ namespace Sicily.Robotix.MicroController.CommunicationApplication
 				this.lstConfiguredRobots.SelectedItem = null;
 
 				//---- show the raw communication page
-				this.ShowRawCommunication(this.lstBuiltInRobots.SelectedItem as IRobot);
+				this.ShowRobotUI(this.lstBuiltInRobots.SelectedItem as IRobot);
 			}
 		}
 		//=======================================================================
@@ -250,39 +243,54 @@ namespace Sicily.Robotix.MicroController.CommunicationApplication
 		//=======================================================================
 		/// <summary>
 		/// If there is a window for that robot already, it shows the control. otherwise
-		/// it creates a new raw communication control for that robot, adds it to the 
+		/// it creates a new UI control for that robot, adds it to the 
 		/// page, and shows it.
 		/// </summary>
 		/// <param name="robot"></param>
 		/// <param name="robotName"></param>
-		protected void ShowRawCommunication(IRobot robot)
+		protected void ShowRobotUI(IRobot robot)
 		{
 			//---- hide other controls
 			this.HideControls();
 
 			//---- check to see if there is a window for that robot already
-			if (this._commWindows.ContainsKey(robot.Configuration.DisplayName))
+			if (this._robotUIs.ContainsKey(robot.Configuration.DisplayName))
 			{
 				//---- show it
-				this._commWindows[robot.Configuration.DisplayName].Visibility = Visibility.Visible;
+				this._robotUIs[robot.Configuration.DisplayName].Visibility = Visibility.Visible;
 			}
 			//---- if there isn't a window already
 			else
 			{
-				//---- instantiate a new one
-				RawSerialCommunication rawComm = new RawSerialCommunication();
+				//---- declare vars
+				UIElement robotUI;
+				RobotUIHost robotUIHost = new RobotUIHost();
 
-				//---- assign the robot to it
-				rawComm.Robot = robot;
+				//---- if it has a custom UI, we have to load the UI
+				if (robot.Configuration.HasCustomUI)
+				{
+					//---- try to load the robot UI
+					if(!(this.LoadRobotUI(robot, out robotUI)))
+					{ return; }
+				}
+				//---- if it doesn't have a custom UI, we just load the raw comm
+				else
+				{ robotUI = new RawSerialCommunication(); }
 
-				//---- add it to the list of them
-				this._commWindows.Add(robot.Configuration.DisplayName, rawComm);
+				//---- assign the robot UI to the UIHost
+				robotUIHost.RobotUI = robotUI;
 
-				//---- add it to the grid
-				this.grdMainContent.Children.Add(rawComm);
+				//---- assign the robot
+				robotUIHost.Robot = robot;
+
+				//---- add the UI host to the list of them
+				this._robotUIs.Add(robot.Configuration.DisplayName, robotUIHost);
+
+				//---- add the UI host to the grid
+				this.grdMainContent.Children.Add(robotUIHost);
 
 				//---- make sure it's visible (especially important if we've hidden it once already)
-				rawComm.Visibility = Visibility.Visible;
+				robotUIHost.Visibility = Visibility.Visible;
 			}
 
 		}
@@ -300,6 +308,55 @@ namespace Sicily.Robotix.MicroController.CommunicationApplication
 				//---- hide the element
 				element.Visibility = Visibility.Hidden;
 			}
+		}
+		//=======================================================================
+
+		//=======================================================================
+		protected bool LoadRobotUI(IRobot robot, out UIElement robotUI)
+		{
+			//---- set to null, in case we return false
+			robotUI = null;
+
+			//---- make sure it has a proper assembly
+			string loadMessage; Assembly assembly;
+			if (!AssemblyManager.TryLoadAssembly(robot.Configuration.UIAssemblyPath, out loadMessage, out assembly))
+			{
+				//---- show the error
+				MessageBoxResult result = Sicily.Robotix.MicroController.CommunicationApplication.Dialogs.MessageBox.Show(Window.GetWindow(this), loadMessage, "Error", MessageBoxButton.OK);
+				return false;
+			}
+			else
+			{
+				//---- declare vars
+				object customClass;
+
+				//---- make sure we can instance the class
+				try
+				{
+					//---- instance the class
+					customClass = assembly.CreateInstance(robot.Configuration.UIInitialClassName);
+
+					//---- check to make sure it implements IRobotUI and UIElement
+					if (customClass is UIElement && customClass is IRobotUI)
+					{
+						robotUI = customClass as UIElement;
+						return true;
+					}
+					else
+					{
+						//---- show the error
+						MessageBoxResult result = Sicily.Robotix.MicroController.CommunicationApplication.Dialogs.MessageBox.Show(Window.GetWindow(this), "The custom robot UI class must derive from UIElement and implement IRobotUI.", "Error", MessageBoxButton.OK);
+						return false;
+					}
+				}
+				catch (Exception e)
+				{
+					//---- show the error
+					MessageBoxResult result = Sicily.Robotix.MicroController.CommunicationApplication.Dialogs.MessageBox.Show(Window.GetWindow(this), "The custom robot UI class could not be instantiated: " + e.Message, "Error", MessageBoxButton.OK);
+					return false;
+				}
+			}
+		
 		}
 		//=======================================================================
 

@@ -48,23 +48,6 @@ namespace Sicily.Robotix
 		}
 		//=========================================================================
 
-		////=========================================================================
-		///// <summary>
-		///// The port settings for the robot
-		///// </summary>
-		//public PortSettings PortSettings
-		//{
-		//    get { return this._portSettings; }
-		//    set
-		//    {
-		//        this._portSettings = value;
-		//        this.HandlePortSettingsChanged();
-		//        this.RaisePropertySettingsChangedEvent("PortSettings");
-		//    }
-		//}
-		//protected PortSettings _portSettings = new PortSettings();
-		////=========================================================================
-
 		//=========================================================================
 		/// <summary>
 		/// Whether or not the port is opened.
@@ -117,8 +100,9 @@ namespace Sicily.Robotix
 			this._serialPort.ErrorReceived += new SerialErrorReceivedEventHandler(SerialPort_ErrorReceived);
 			this._configuration.PortSettings.PropertyChanged +=new PropertyChangedEventHandler(PortSettings_PropertyChanged);
 			this._configuration.PropertyChanged += new PropertyChangedEventHandler(_configuration_PropertyChanged);
-
-			//---- validate the assemblies and classes
+			
+			//---- TODO: wireup the pinchange and see if we can raise a portStatusChange event based on open/close
+			// then, subscribe to it on the RobotUIHost page so we can show port open/close
 
 		}
 
