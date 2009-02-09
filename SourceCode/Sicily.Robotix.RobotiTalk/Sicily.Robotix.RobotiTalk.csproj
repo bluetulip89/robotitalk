@@ -80,6 +80,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\RobotUIHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dialogs\About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -114,6 +118,9 @@
     </Compile>
     <Compile Include="Controls\RobotConfigurationList.xaml.cs">
       <DependentUpon>RobotConfigurationList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RobotUIHost.xaml.cs">
+      <DependentUpon>RobotUIHost.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>

@@ -466,13 +466,13 @@ namespace Sicily.Robotix.MicroController.CommunicationApplication.Controls
 						try
 						{
 							//---- instance the class
-							customClass = assembly.CreateInstance(this.txtClassName.Text);
+							customClass = assembly.CreateInstance(this.txtUIClassName.Text);
 
-							//---- check to make sure it implements IRobotUI
-							if (!(customClass is UIElement))
+							//---- check to make sure it implements IRobotUI and UIElement
+							if (!(customClass is UIElement && customClass is IRobotUI))
 							{
 								//---- show the error
-								MessageBoxResult result = Sicily.Robotix.MicroController.CommunicationApplication.Dialogs.MessageBox.Show(Window.GetWindow(this), "The custom robot UI class must implement IRobotUI.", "Error", MessageBoxButton.OK);
+								MessageBoxResult result = Sicily.Robotix.MicroController.CommunicationApplication.Dialogs.MessageBox.Show(Window.GetWindow(this), "The custom robot UI class must derive from UIElement and implement IRobotUI.", "Error", MessageBoxButton.OK);
 								return false;
 							}
 						}

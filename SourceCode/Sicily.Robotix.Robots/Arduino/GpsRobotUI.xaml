@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="Sicily.Robotix.Robots.Arduino.GpsRobotUI"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+	<DockPanel>
+		<Grid DockPanel.Dock="Top">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition Height="250"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+
+			<!-- latitude -->
+			<TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right">Latitude:</TextBlock>
+			<TextBox Grid.Row="0" Grid.Column="1" Name="txtLatitude" HorizontalAlignment="Left">[lat]</TextBox>
+			<!-- longitude -->
+			<TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right">Longitude:</TextBlock>
+			<TextBox Grid.Row="0" Grid.Column="3" Name="txtLongitude" HorizontalAlignment="Left">[long]</TextBox>
+
+			<!-- ground speed -->
+			<TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right">Ground Speed (knots):</TextBlock>
+			<TextBox Grid.Row="1" Grid.Column="1" Name="txtGroundSpeed" HorizontalAlignment="Left">[groundSpeed]</TextBox>
+
+			<!-- longitude -->
+			<TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right">Heading:</TextBlock>
+			<TextBox Grid.Row="1" Grid.Column="3" Name="txtHeading" HorizontalAlignment="Left">[heading]</TextBox>
+
+			<!-- number of sats in view -->
+			<TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right">Number of Sats in View:</TextBlock>
+			<TextBox Grid.Row="2" Grid.Column="1" Name="txtNumberOfSatellitesInView" HorizontalAlignment="Left">[number of sates in iew]</TextBox>
+
+			<!-- satellites in view -->
+			<TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top">Satellites in View:</TextBlock>
+			<TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Name="txtSatellitesInView" HorizontalAlignment="Left" Height="250" Width="200" VerticalAlignment="Top">[sats in view]</TextBox>
+
+
+		</Grid>
+	
+		<!-- filler -->
+		<StackPanel/>
+	</DockPanel>
+</UserControl>
