@@ -15,6 +15,4 @@ To add custom robots, click the "Manage Robots" link at the bottom of RobotiTalk
 For more information on sample robots included with RobotiTalk, check out the SampleRobots page.
 
 = Building Your Own =
-Fore more information on how to build your own custom robots, check out the BuildingCustomRobots and BuildingCustomRobotUIs page.
-
-
+Fore more information on how to build your own custom robots, check out the BuildingCustomRobots and [BuildingCustomRobotUIs] page.
