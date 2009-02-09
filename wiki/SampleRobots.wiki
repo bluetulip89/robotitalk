@@ -5,7 +5,7 @@
 RobotiTalk includes several sample robots that you can use as examples for how to build your own custom robots for use with RobotiTalk.
 
 
-= SampleRobots =
+= Sample Robots =
 
 || Robot Name || Has Custom Class || Has Custom UI ||
 || LEDCounter01 || Yes || No ||
