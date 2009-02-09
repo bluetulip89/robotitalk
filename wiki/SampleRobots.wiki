@@ -1,0 +1,15 @@
+#summary Overview of the sample robots included with RobotiTalk
+
+= Introduction =
+
+RobotiTalk includes several sample robots that you can use as examples for how to build your own custom robots for use with RobotiTalk.
+
+
+= SampleRobots =
+
+|| Robot Name || Has Custom Class || Has Custom UI ||
+|| LEDCounter01 || Yes || No ||
+|| GpsRobot || Yes || Yes ||
+
+  * *LEDCounter01* - A simple blah.
+  * *GpsRobot* - A robot that reads and parses raw NMEA GPS data from a GPS receiver and displays that data in a custom UI. Uses the [http://code.google.com/p/gpstalk/ Sicily.Gps] library.
