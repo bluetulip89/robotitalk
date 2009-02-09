@@ -7,7 +7,7 @@ RobotiTalk includes several sample robots that you can use as examples for how t
 
 = Sample Robots =
 
-|| Robot Name || Has Custom Class || Has Custom UI ||
+|| Robot Name || Has Custom Class || Has Custom UI || Screen Shot ||
 || LEDCounter01 || Yes || No ||
 || GpsRobot || Yes || Yes ||
 
