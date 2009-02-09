@@ -1,5 +1,5 @@
 #summary Screen Shots for RobotiTalk
-#labels ScreenShots
+#labels ScreenShots,Featured
 
 = Introduction =
 
